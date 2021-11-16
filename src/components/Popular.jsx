@@ -4,11 +4,10 @@ import Card from './Card.jsx'
 class Popular extends Component {
     constructor(){
         super()
-
-            this.state={
-                movies: []
-            }
         
+        this.state={
+          movies: []
+          }
     }
 
     componentDidMount() {
@@ -16,7 +15,6 @@ class Popular extends Component {
         .then(result => result.json())
           .then(data => {
             this.setState({ movies: data.results })
-            // console.log(result)
           })
           .catch(err => {
             console.log(err)
@@ -25,13 +23,24 @@ class Popular extends Component {
 
     render() {
       const { movies} = this.state
+      // console.log(movies)
         return (
           <>
           <div className="container">
-          <h1 className="text-light my-3">Popular</h1>
-            <div className="row">
-                <Card movies={movies}/>
-              </div>
+            <h1 className="text-light my-3">PopularBattle</h1>
+                <div className="row">
+                  {
+                    movies.map(function(movie){
+                    return <Card 
+                    original_title={movie.original_title}
+                    release_date={movie.release_date}
+                    overview={movie.overview}
+                    poster_path={movie.poster_path}
+                    key={movie.id}
+                    />
+                    })
+                  }
+                </div>
             </div>
           </>
         
