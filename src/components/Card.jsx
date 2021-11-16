@@ -7,7 +7,7 @@ class Card extends Component {
         return (
             <>
             
-            <div className="col-3 my-3"   >
+            <div className="col-3 my-3" >
                 <div className=" my-1 h-100 box"  >
                     <img className="image mb-3" src={"https://image.tmdb.org/t/p/w300/"+poster_path} alt=""/>
                     <h4 className="text-center text-light">{original_title}</h4>
